@@ -1,0 +1,12 @@
+# Java class files
+*.class
+
+# Generated files
+bin/
+build/
+
+.settings/
+.metadata/
+
+.DS_Store
+.gradle/
