@@ -199,7 +199,10 @@ public class ClientPanel extends JPanel implements ClientChangeListener {
     @Override
     public void messageReceived(Message msg) {
 
-        // TODO: Make the server show the timestamp of the received message
+        // TODO: Make the server show the timestamp of the received message.
+        // Probably should use DateFormat (SimpleDateFormat) to format the date.
+        // Date#getMinute, Date#getHour etc are deprecated in favor of this
+        // method
 
         String newText = String.format(" %s: %s%n", msg.getSender(),
                 msg.getContent());
