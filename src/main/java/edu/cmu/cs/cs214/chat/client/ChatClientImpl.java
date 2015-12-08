@@ -112,8 +112,7 @@ public class ChatClientImpl extends Thread implements ChatClient {
                 ObjectInputStream in = new ObjectInputStream(
                         socket.getInputStream());
                 Message msg = (Message) in.readObject();
-                this.notifyListenersMessageSent(msg.getSender(),
-                        msg.getContent());
+                this.notifyListenersMessageSent(msg);
                 Log.i(TAG, String.format("Sending message: %s", msg));
             }
         } catch (EOFException e) {
@@ -155,9 +154,9 @@ public class ChatClientImpl extends Thread implements ChatClient {
      * @param message
      *            text of message being sent
      */
-    private void notifyListenersMessageSent(String sender, String message) {
+    private void notifyListenersMessageSent(Message message) {
         for (ClientChangeListener listener : this.listeners) {
-            listener.messageReceived(sender, message);
+            listener.messageReceived(message);
         }
     }
 }

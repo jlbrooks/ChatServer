@@ -21,6 +21,7 @@ import javax.swing.SwingUtilities;
 
 import edu.cmu.cs.cs214.chat.client.ChatClient;
 import edu.cmu.cs.cs214.chat.client.ClientChangeListener;
+import edu.cmu.cs.cs214.chat.server.Message;
 
 /**
  * ClientPanel a GUI for the ChatClient interface
@@ -196,11 +197,12 @@ public class ClientPanel extends JPanel implements ClientChangeListener {
      * lang.String)
      */
     @Override
-    public void messageReceived(String username, String message) {
+    public void messageReceived(Message msg) {
 
         // TODO: Make the server show the timestamp of the received message
 
-        String newText = String.format(" %s: %s%n", username, message);
+        String newText = String.format(" %s: %s%n", msg.getSender(),
+                msg.getContent());
         this.chatArea.append(newText);
         chatArea.setCaretPosition(chatArea.getDocument().getLength());
     }
