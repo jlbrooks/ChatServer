@@ -14,6 +14,7 @@ public class Message implements Serializable {
     private String content;
     private Date timestamp;
     private String sender;
+    private Date serverTimestamp;
 
 
     // TODO: Make the message also include a timestamp for when the server
@@ -64,6 +65,26 @@ public class Message implements Serializable {
      */
     public Date getTimestamp() {
         return new Date(timestamp.getTime());
+    }
+    
+    
+    /**
+     * 
+     * @return Time at which the server received this message
+     */
+    public Date getServerTimestamp() {
+        return new Date(serverTimestamp.getTime());
+    }
+
+
+    /**
+     * Sets the server timestamp
+     * 
+     * @param receivedAt
+     *            Time at which the server received this message
+     */
+    public void setServerTimestamp(Date receivedAt) {
+        this.serverTimestamp = new Date(receivedAt.getTime());
     }
 
 

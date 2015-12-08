@@ -197,9 +197,6 @@ public class ClientPanel extends JPanel implements ClientChangeListener {
      */
     @Override
     public void messageReceived(String username, String message) {
-
-        // TODO: Make the server show the timestamp of the received message
-
         String newText = String.format(" %s: %s%n", username, message);
         this.chatArea.append(newText);
         chatArea.setCaretPosition(chatArea.getDocument().getLength());
