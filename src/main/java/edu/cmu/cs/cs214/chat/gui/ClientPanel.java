@@ -7,6 +7,7 @@ import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.text.SimpleDateFormat;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -198,8 +199,13 @@ public class ClientPanel extends JPanel implements ClientChangeListener {
      */
     @Override
     public void messageReceived(Message msg) {
+        // Formatter for the date. See link you want to change the output format
+        // https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html
+        // Usage: dateFormatter.format(date) -> String
+        SimpleDateFormat dateFormatter = new SimpleDateFormat("HH:mm:ss Z");
 
-        // TODO: Make the server show the timestamp of the received message
+        // TODO: Make the server show the timestamp of the received message.
+        // Example output: [15:21:40 -0400] Person: Some message...
 
         String newText = String.format(" %s: %s%n", msg.getSender(),
                 msg.getContent());
